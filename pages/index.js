@@ -76,7 +76,7 @@ export default function Home(props) {
   );
 }
 
-export async function getStaticProps(ctx) {
+export async function getServerSideProps(ctx) {
   // Import modules in here that aren't needed in the component
   const cheerio = await import(`cheerio`);
   const axios = (await import(`axios`)).default;
