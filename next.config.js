@@ -1,4 +1,5 @@
-const { BUSINESS_URL, DEV_URL, BACKOFFICE_URL, BLOG_URL } = process.env;
+const { BUSINESS_URL, DEV_URL, BACKOFFICE_URL, BLOG_URL } = process.env
+const pages = require("./pages")
 
 module.exports = {
   reactStrictMode: true,
@@ -8,10 +9,7 @@ module.exports = {
   async rewrites() {
     return {
       beforeFiles: [
-        {
-          source: "/:path*",
-          destination: `/:path*`,
-        },
+        ...pages,
         {
           source: "/business",
           destination: `${BUSINESS_URL}/business`,
@@ -46,10 +44,7 @@ module.exports = {
         },
       ],
       afterFiles: [
-        {
-          source: "/:path*",
-          destination: `/:path*`,
-        },
+        ...pages,
         {
           source: "/business",
           destination: `${BUSINESS_URL}/business`,
@@ -84,6 +79,7 @@ module.exports = {
         },
       ],
       fallback: [
+        ...pages,
         {
           source: "/:path*",
           destination: `/:path*`,
@@ -121,6 +117,6 @@ module.exports = {
           destination: `${BLOG_URL}/blog/:path*`,
         },
       ],
-    };
+    }
   },
-};
+}
