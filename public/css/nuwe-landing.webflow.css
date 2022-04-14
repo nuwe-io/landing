@@ -110,12 +110,13 @@
 
 .button.button-hero {
   display: block;
-  width: 170px;
+  width: 200px;
   margin-top: 30px;
   margin-right: 0px;
   margin-bottom: 0px;
   color: #fff;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .button.button-hero.button-card {
@@ -250,14 +251,30 @@
   color: #1c1e2c;
 }
 
+.nav-link.white:hover {
+  color: #5ebf0d;
+}
+
 .nav-link.white.dropdown-menu {
   display: block;
   color: #fff;
 }
 
+.nav-link.white.dropdown-menu:hover {
+  color: #5ebf0d;
+}
+
 .nav-link.white.dropdown-menu.super-white {
   background-color: transparent;
   color: #fff;
+}
+
+.nav-link.white.dropdown-menu.selected {
+  color: #5ebf0d;
+}
+
+.nav-link.white.selected {
+  color: #5ebf0d;
 }
 
 .hero {
@@ -287,15 +304,16 @@
 .h1 {
   padding-bottom: 40px;
   color: #1c1e2c;
-  font-size: 50px;
-  line-height: 60px;
-  font-weight: 600;
+  font-size: 65px;
+  line-height: 70px;
+  font-weight: 800;
   text-align: center;
 }
 
 .h1.white {
   width: 900px;
   color: #fff;
+  font-size: 60px;
 }
 
 .div-block-1 {
@@ -318,7 +336,7 @@
 
 .paragraph-1 {
   color: #1c1e2c;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 25px;
   font-weight: 400;
   text-align: center;
@@ -484,7 +502,9 @@
 
 .image-4 {
   z-index: 1;
-  width: 1000px;
+  width: 100%;
+  max-width: 1140px;
+  min-width: 1000px;
   margin-top: 90px;
 }
 
@@ -839,6 +859,12 @@
   margin-right: 5px;
   margin-left: 5px;
   padding-left: 0px;
+  -webkit-transition: box-shadow 200ms ease;
+  transition: box-shadow 200ms ease;
+}
+
+.logo:hover {
+  box-shadow: 0 0 3px 0 #9b9b9b, -4px -4px 0 0 #5ebf0d;
 }
 
 .section-5 {
@@ -907,6 +933,7 @@
 }
 
 .form-block {
+  display: none;
   width: 600px;
   margin-top: 90px;
   margin-bottom: 200px;
@@ -1777,7 +1804,20 @@
 }
 
 .companies-trust {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   margin-top: 120px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .body-3 {
@@ -1831,7 +1871,11 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 850px;
+  width: 100%;
+  max-width: 1064px;
+  min-width: 850px;
+  margin-right: 20px;
+  margin-left: 20px;
   padding-top: 40px;
   padding-bottom: 40px;
   -webkit-box-pack: justify;
@@ -1863,6 +1907,10 @@
 
 .brand-2 {
   padding-left: 0px;
+}
+
+.text-span-2 {
+  font-weight: 700;
 }
 
 @media screen and (max-width: 991px) {
@@ -1950,6 +1998,8 @@
 
   .h1.white {
     width: 650px;
+    font-size: 42px;
+    line-height: 54px;
   }
 
   .div-block-1 {
@@ -1977,6 +2027,7 @@
     top: 327px;
     width: 791px;
     max-width: none;
+    min-width: 0px;
   }
 
   .image-4.black {
@@ -2087,6 +2138,10 @@
   .logos {
     width: 650px;
     margin-top: 30px;
+  }
+
+  .logo:hover {
+    box-shadow: 0 0 3px 0 #9b9b9b, -3px -3px 0 0 #5ebf0d;
   }
 
   .section-5 {
@@ -2377,6 +2432,8 @@
   .navbar-main {
     overflow: visible;
     width: 670px;
+    max-width: none;
+    min-width: 0px;
   }
 
   .navbar-3 {
@@ -2465,6 +2522,8 @@
 
   .h1.white {
     width: 500px;
+    font-size: 38px;
+    line-height: 48px;
   }
 
   .paragraph-1 {
@@ -2587,6 +2646,10 @@
 
   .logos {
     width: 500px;
+  }
+
+  .logo:hover {
+    box-shadow: 0 0 3px 0 #9b9b9b, -2px -2px 0 0 #5ebf0d;
   }
 
   .section-5 {
@@ -2756,6 +2819,7 @@
   .navbar-main {
     overflow: visible;
     width: 530px;
+    min-width: 0px;
   }
 
   .menu-button-3 {
@@ -2830,6 +2894,8 @@
 
   .h1.white {
     width: 390px;
+    font-size: 32px;
+    line-height: 40px;
   }
 
   .div-block-1 {
@@ -2994,6 +3060,21 @@
     grid-template-columns: 1fr 1fr;
     -ms-grid-rows: 1fr auto;
     grid-template-rows: 1fr auto;
+  }
+
+  .logo {
+    -webkit-transition: box-shadow 100ms ease;
+    transition: box-shadow 100ms ease;
+  }
+
+  .logo:hover {
+    position: relative;
+    box-shadow: -3px -3px 0 2px #5ebf0d;
+    outline-color: #fff;
+    outline-offset: 0px;
+    outline-style: solid;
+    outline-width: 2px;
+    mix-blend-mode: normal;
   }
 
   .section-5 {
