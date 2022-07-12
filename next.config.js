@@ -16,7 +16,7 @@ module.exports = {
         },
         {
           source: "/business/:path*",
-          destination: `${BUSINESS_URL}/business/:path*/`,
+          destination: `${BUSINESS_URL}/business/:path*`,
         },
         {
           source: "/dev",
