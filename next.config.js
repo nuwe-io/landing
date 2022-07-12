@@ -12,11 +12,11 @@ module.exports = {
         ...pages,
         {
           source: "/business",
-          destination: `${BUSINESS_URL}/business`,
+          destination: `${BUSINESS_URL}/business/`,
         },
         {
           source: "/business/:path*",
-          destination: `${BUSINESS_URL}/business/:path*`,
+          destination: `${BUSINESS_URL}/business/:path*/`,
         },
         {
           source: "/dev",
