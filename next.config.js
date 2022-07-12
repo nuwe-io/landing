@@ -12,7 +12,7 @@ module.exports = {
         ...pages,
         {
           source: "/business",
-          destination: `${BUSINESS_URL}/business/`,
+          destination: `${BUSINESS_URL}/business`,
         },
         {
           source: "/business/:path*",
