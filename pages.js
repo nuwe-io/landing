@@ -24,8 +24,16 @@ module.exports = [
     destination: "/privacy-policy.html",
   },
   {
+    source: "/cookies",
+    destination: "/cookies.html",
+  },
+  {
     source: "/terms",
     destination: "/terms-of-use.html",
+  },
+  {
+    source: "/disclaimer",
+    destination: "/disclaimer.html",
   },
   {
     source: "/404",

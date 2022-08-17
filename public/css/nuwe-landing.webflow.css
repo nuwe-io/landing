@@ -274,7 +274,7 @@
 }
 
 .nav-link.white.selected {
-  color: #5ebf0d;
+  color: #5ebf0f;
 }
 
 .hero {
@@ -639,6 +639,11 @@
 
 .div-block-3.black.hackathons {
   margin-top: 0px;
+  padding-bottom: 60px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
 }
 
 .card {
@@ -1101,6 +1106,7 @@
 
 .slide-nav-2 {
   top: 515px;
+  margin-bottom: -60px;
   background-color: #14151f;
 }
 
@@ -1929,6 +1935,11 @@
   font-size: 24px;
 }
 
+.div-block-22-copy {
+  width: 850px;
+  min-height: 500px;
+}
+
 @media screen and (max-width: 991px) {
   .body {
     overflow: visible;
@@ -2509,6 +2520,10 @@
   .hamburguer.hidden {
     display: none;
   }
+
+  .div-block-22-copy {
+    width: 650px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -2860,6 +2875,10 @@
 
   .menu-button-3.w--open {
     overflow: visible;
+  }
+
+  .div-block-22-copy {
+    width: 450px;
   }
 }
 
@@ -3444,6 +3463,10 @@
 
   .navbar-main {
     width: 320px;
+  }
+
+  .div-block-22-copy {
+    width: 300px;
   }
 }
 
