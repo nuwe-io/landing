@@ -1662,6 +1662,7 @@
 }
 
 .image-15 {
+  width: 400px;
   border-radius: 8px;
 }
 
@@ -1832,6 +1833,10 @@
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
@@ -1938,6 +1943,13 @@
 .div-block-22-copy {
   width: 850px;
   min-height: 500px;
+}
+
+.container-3 {
+  outline-color: #555;
+  outline-offset: 0px;
+  outline-style: none;
+  outline-width: 3px;
 }
 
 @media screen and (max-width: 991px) {

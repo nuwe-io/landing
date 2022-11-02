@@ -1,7 +1,7 @@
 module.exports = [
   {
     source: '/',
-    destination: '/developers.html'
+    destination: '/index.html'
   },
   {
     source: '/404',
@@ -13,7 +13,7 @@ module.exports = [
   },
   {
     source: '/companies',
-    destination: '/index.html'
+    destination: '/companies.html'
   },
   {
     source: '/press',
