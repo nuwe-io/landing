@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev --port 4001",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -13,6 +14,7 @@
     "html-react-parser": "^1.2.6",
     "lodash": "^4.17.21",
     "next": "11.0.1",
+    "next-sitemap": "^4.0.9",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "sitemap-links": "^1.0.3",
