@@ -2,6 +2,10 @@ const { BUSINESS_URL, DEV_URL, BACKOFFICE_URL, BLOG_URL } = process.env
 const pages = require("./pages")
 
 module.exports = {
+  output: "standalone",
+  experimental: {
+    outputStandalone: true,
+  },
   reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true,
