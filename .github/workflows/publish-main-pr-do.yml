@@ -1,12 +1,25 @@
-name: Build and publish at push
- 
+name: Build and publish at pull request
+
 on:
-  push:
+  pull_request_target:
     branches:
-      - main
+      - main 
+    types:
+      - closed
 
 jobs:
+  build_only:
+    if: github.event.pull_request.merged == false
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repo 
+        uses: actions/checkout@v2
+
+      - name: Build image 
+        run: docker build -t ${{ github.event.repository.name }} .
+
   build_and_push:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repo 
