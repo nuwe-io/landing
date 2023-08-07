@@ -4,8 +4,7 @@ on:
   pull_request_target:
     branches:
       - main 
-    types:
-      - [opened, closed, edited ]
+    types: [opened, closed, edited]
 
 jobs:
   build_only:
