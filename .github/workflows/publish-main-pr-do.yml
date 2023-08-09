@@ -1,14 +1,17 @@
 name: Build and publish at pull request
 
 on:
+  push:
+    branches:
+      - main
   pull_request_target:
     branches:
       - main 
-    types: [opened, synchronized, edited, closed]
+    types: [opened, synchronized, edited]
 
 jobs:
   build_only:
-    if: github.event.pull_request.merged == false
+    if: github.event.pull_request.merged == false && github.event_name != 'push'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repo 
@@ -18,7 +21,7 @@ jobs:
         run: docker build -t ${{ github.event.repository.name }} .
 
   build_and_push:
-    if: github.event.pull_request.merged == true
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repo 
