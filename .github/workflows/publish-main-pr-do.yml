@@ -1,0 +1,46 @@
+name: Build and publish at pull request
+
+on:
+  push:
+    branches:
+      - main
+  pull_request_target:
+    branches:
+      - main 
+    types: [opened, synchronized, edited]
+
+jobs:
+  build_only:
+    if: github.event.pull_request.merged == false && github.event_name != 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repo 
+        uses: actions/checkout@v2
+
+      - name: Build image 
+        run: docker build -t ${{ github.event.repository.name }} .
+
+  build_and_push:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repo 
+        uses: actions/checkout@v2
+
+      - name: Build image 
+        run: docker build -t ${{ github.event.repository.name }} .
+
+      - name: Install doctl 
+        uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DO_API_TOKEN}}
+
+      - name: Log in to DO Container Registry 
+        run: doctl registry login --expiry-seconds 600
+
+      - name: Tag image 
+        run:
+          docker tag ${{ github.event.repository.name }} ${{ vars.DO_REGISTRY_PROD }}/${{ github.event.repository.name}}:latest
+
+      - name: Push image to DO Container Registry 
+        run: docker push ${{ vars.DO_REGISTRY_PROD }}/${{ github.event.repository.name }}:latest
