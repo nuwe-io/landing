@@ -1,12 +1,12 @@
 name: Build and publish at pull request
-
+ 
 on:
   push:
     branches:
-      - main
+      - development
   pull_request_target:
     branches:
-      - main 
+      - development
     types: [opened, synchronized, edited]
 
 jobs:
@@ -18,10 +18,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build environment
-        run: cat ${{ github.event.repository.name }}.env.production > .env
+        run: cat ${{ github.event.repository.name }}.env.development > .env
 
       - name: Build image 
-        run: docker build -t ${{ github.event.repository.name }} .
+        run: docker build -t ${{ github.event.repository.name }}-development .
 
   build_and_push:
     if: github.event_name == 'push'
@@ -31,10 +31,10 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build environment
-        run: cat ${{ github.event.repository.name }}.env.production > .env
+        run: cat ${{ github.event.repository.name }}.env.development > .env
 
       - name: Build image 
-        run: docker build -t ${{ github.event.repository.name }} .
+        run: docker build -t ${{ github.event.repository.name }}-development .
 
       - name: Install doctl 
         uses: digitalocean/action-doctl@v2
@@ -46,7 +46,7 @@ jobs:
 
       - name: Tag image 
         run:
-          docker tag ${{ github.event.repository.name }} ${{ vars.DO_REGISTRY_PROD }}/${{ github.event.repository.name}}:latest
+          docker tag ${{ github.event.repository.name }}-development ${{ vars.DO_REGISTRY_PROD }}/${{ github.event.repository.name}}-development:latest
 
       - name: Push image to DO Container Registry 
-        run: docker push ${{ vars.DO_REGISTRY_PROD }}/${{ github.event.repository.name }}:latest
+        run: docker push ${{ vars.DO_REGISTRY_PROD }}/${{ github.event.repository.name }}-development:latest
