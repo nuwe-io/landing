@@ -76,24 +76,13 @@ export default function Home(props) {
   );
 }
 
-export async function getServerSideProps(ctx) {
-  // Import modules in here that aren't needed in the component
+
+// Helper function to fetch and parse HTML
+async function fetchAndParseHTML(url) {
   const cheerio = await import(`cheerio`);
   const axios = (await import(`axios`)).default;
 
-  // Use path to determine Webflow path
-  let url = get(ctx, `params.path`, []);
-  url = url.join(`/`);
-  if (url.charAt(0) !== `/`) {
-    url = `/${url}`;
-  }
-  const fetchUrl = process.env.WEBFLOW_URL + url;
-
-  // Fetch HTML
-  let res = await axios(fetchUrl).catch((err) => {
-    console.error(err);
-  });
-
+  const res = await axios(url);
   const html = res.data;
 
   // Parse HTML with Cheerio
@@ -103,11 +92,17 @@ export async function getServerSideProps(ctx) {
   const bodyContent = $(`body`).html();
   const headContent = $(`head`).html();
 
-  // Send HTML to component via props
+  return { bodyContent, headContent };
+}
+
+// This function should be deprecated because we are not using webflow anymore
+export async function getServerSideProps(ctx) {
+  // This is a partial fix for 404s
+  const { bodyContent, headContent } = await fetchAndParseHTML('https://nuwe.io/404');
   return {
     props: {
       bodyContent,
       headContent,
-    },
-  };
+    }
+  }
 }
