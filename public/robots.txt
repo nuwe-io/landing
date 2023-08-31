@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://nuwe.io
+
+# Sitemaps
+Sitemap: https://nuwe.io/sitemap.xml
