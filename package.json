@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev --port 4001",
     "build": "next build",
-    "start": "next start",
-    "postbuild": "next-sitemap"
+    "start": "next start"
   },
   "dependencies": {
     "axios": "^0.21.1",
